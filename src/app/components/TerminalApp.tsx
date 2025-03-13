@@ -39,7 +39,7 @@ export default function TerminalApp({title, onClose, onMinimize, maximized, mini
                 </div>
             </div>
 
-            <WindowsTerminal />
+            <WindowsTerminal onClose={onClose}/>
 
         </div>
         </Draggable>
