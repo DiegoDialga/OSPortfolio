@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { windowCommands } from "@/app/components/terminals/commands/windowCommands";
+import {fontColors} from "@/app/components/terminals/fontColors";
 
 
 const WindowsTerminal = ({onClose}) => {
@@ -7,6 +8,7 @@ const WindowsTerminal = ({onClose}) => {
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
     const terminalEndRef = useRef(null);
+    const [fontColor, setFontColor] = useState(fontColors['dark-green']);
 
 
     const handleInput = (event) => {
@@ -35,7 +37,7 @@ const WindowsTerminal = ({onClose}) => {
 
                 newOutput.push(<span key={command}>
                 <span className="text-white  font-bold">{command}</span>:{" "}
-                    <span className="text-green-600">{description}</span>
+                    <span style={{color: fontColor}}>{description}</span>
             </span>)
             })
 
@@ -71,6 +73,23 @@ const WindowsTerminal = ({onClose}) => {
                     windowCommands.socials.output.split('\n').map((line) => (
                         newOutput.push(line)
                     ))
+                    break
+                case "fontcolor":
+                    if(cmdArgs.length == 0){
+                        const string = "Try: 'fontcolor available' for listing all colors. \n" +
+                            "Try: 'fontcolor colorname' to change the font color "
+                        string.split('\n').map((line) => (
+                            newOutput.push(line)
+                        ))
+                    }else if(cmdArgs[0] === 'available') {
+                        Object.keys(fontColors).map((fontColor) => {
+                            newOutput.push(fontColor)
+                        })
+                    }else{
+                        console.log(fontColors[cmdArgs[0]]);
+                        setFontColor(fontColors[cmdArgs[0].split(' ')])
+
+                    }
                     break;
                 case "exit":
                     onClose();
@@ -88,7 +107,9 @@ const WindowsTerminal = ({onClose}) => {
     }, [output]);
 
     return (
-        <div className="w-full h-full font-mono font-medium text-green-600 brightness-150">
+        <div
+            style={{color: fontColor}}
+            className={`w-full h-full font-mono font-medium brightness-150`}>
             <span>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>
@@ -102,21 +123,24 @@ const WindowsTerminal = ({onClose}) => {
                 {output.map((line, index) => (
                     <p key={index} className="break-words">{line}</p>
                 ))}
-                <div ref={terminalEndRef} />
+
+                <div ref={terminalEndRef}/>
 
 
-            {/* Input Area */}
-            <div className="flex">
-                <span>{path}&gt;</span>
-                <input
-                    type="text"
-                    value={input}
-                    onChange={handleInput}
-                    onKeyDown={handleKeyDown}
-                    className="bg-transparent text-green-400 outline-none flex-1 ml-2"
-                    autoFocus
-                />
-            </div>
+                {/* Input Area */}
+                <div className="h-2" />
+                <div className="flex">
+                    <span>{path}&gt;</span>
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={handleInput}
+                        onKeyDown={handleKeyDown}
+                        className="bg-transparent text-green-600 outline-none flex-1 ml-2"
+                        autoFocus
+                        spellCheck={false}
+                    />
+                </div>
                 <br/>
             </div>
         </div>
