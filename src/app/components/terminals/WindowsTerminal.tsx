@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { windowCommands } from "@/app/components/terminals/commands/windowCommands";
 import {fontColors} from "@/app/components/terminals/fontColors";
-import {getLocalStorage, setLocalStorage} from "@/app/components/utils/color";
+import {getLocalStorage, setLocalStorage} from "@/app/components/utils/localStorage";
+import {backgroundTheme, terminalTheme} from "@/app/components/terminals/terminalTheme";
 
 
-const WindowsTerminal = ({onClose}) => {
+const WindowsTerminal = ({background ,onClose}) => {
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
@@ -15,7 +16,7 @@ const WindowsTerminal = ({onClose}) => {
     const handleInput = (event) => {
         setInput(event.target.value);
     };
-    
+
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
             processCommand(input);
@@ -87,7 +88,7 @@ const WindowsTerminal = ({onClose}) => {
                             newOutput.push(fontColor)
                         })
                     }else{
-                        console.log(fontColors[cmdArgs[0]]);
+                        console.log("else called");
                         if(fontColors.hasOwnProperty(cmdArgs[0])){
                             setFontColor(fontColors[cmdArgs[0].split(' ')])
                             setLocalStorage("fontColor", fontColors[cmdArgs[0].split(' ')]);
@@ -99,6 +100,40 @@ const WindowsTerminal = ({onClose}) => {
                             })
                         }
 
+                    }
+                    break
+                case "background":
+                    if(cmdArgs.length == 0 || cmdArgs[1] == ""){
+                        const string = "Try: 'background available' for listing all background colors. \n" +
+                            "Try: 'background <colorname> <transparency>' to change the background color. \n " +
+                            "Note: <transparency> is optional and should be between 0 and 1."
+                        string.split('\n').map((line) => (
+                            newOutput.push(line)
+                        ))
+                    }else if(cmdArgs[0] == 'available'){
+                        Object.keys(backgroundTheme).map((theme) => {
+                            newOutput.push(theme)
+                        })
+                    }else{
+
+                        if(backgroundTheme.hasOwnProperty(cmdArgs[0]) && cmdArgs[1] == null){
+                            background(terminalTheme(cmdArgs[0], 0.3))
+                            console.log("present")
+                        }
+                        else if(backgroundTheme.hasOwnProperty(cmdArgs[0]) && cmdArgs[1] != null){
+                            if(isNaN(cmdArgs[1])){
+                                newOutput.push(`Invalid command! Please check the command again.`)
+                            }else{
+
+                                background(terminalTheme(cmdArgs[0], parseFloat(cmdArgs[1])))
+                            }
+                        }
+                        else{
+                            newOutput.push(`${cmdArgs[0]} is not a theme available. Please choose a valid theme from:`);
+                            Object.keys(backgroundTheme).map((theme) => {
+                                newOutput.push(`-> ${theme}`)
+                            })
+                        }
                     }
                     break;
                 case "exit":
@@ -125,7 +160,7 @@ const WindowsTerminal = ({onClose}) => {
     return (
         <div
             style={{color: fontColor}}
-            className={`w-full h-full font-mono font-medium brightness-150`}>
+            className={`w-full h-full font-mono text-[17px] font-extrabold brightness-150`}>
             <span>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>

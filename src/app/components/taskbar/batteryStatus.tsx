@@ -30,7 +30,7 @@ const BatteryStatus = () => {
     }, []);
 
     return (
-        <div className="text-white p-4 flex-row justify-center items-center">
+        <div className="text-white w-fit m-4 flex-row justify-center items-center">
             <p>{Math.round(battery.level * 100)}%</p>
             <p>{battery.charging ? 'Charging ⚡' : 'Not Charging 🔋'}</p>
         </div>

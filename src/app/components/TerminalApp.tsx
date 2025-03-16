@@ -1,9 +1,16 @@
 import React, {useState} from "react";
 import Draggable from "react-draggable";
 import WindowsTerminal from "@/app/components/terminals/WindowsTerminal";
+import {terminalTheme} from "@/app/components/terminals/terminalTheme";
 
 export default function TerminalApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
     const [cursorAtTerminalTitleBar, setCursorAtTerminalTitleBar] = useState(false);
+    const [terminalBackground, setTerminalBackground] = useState(terminalTheme('black', 0.3));
+
+    const background = (theme) => {
+        setTerminalBackground(theme)
+        console.log("got called")
+    }
 
     const handleMouseEnter = () =>{
         setCursorAtTerminalTitleBar(true)
@@ -16,10 +23,12 @@ export default function TerminalApp({title, onClose, onMinimize, maximized, mini
 
     return(
         <Draggable disabled={!cursorAtTerminalTitleBar}>
-        <div className={`
+        <div
+            style={{backgroundColor: terminalBackground}}
+            className={`
          ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-70px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
                ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'}
-         rounded-[10px] bg-black/30 backdrop-blur-md text-white border border-gray-600`}>
+         rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
 
         <div
                 onMouseEnter={handleMouseEnter}
@@ -39,7 +48,7 @@ export default function TerminalApp({title, onClose, onMinimize, maximized, mini
                 </div>
             </div>
 
-            <WindowsTerminal onClose={onClose}/>
+            <WindowsTerminal background={background} onClose={onClose}/>
 
         </div>
         </Draggable>
