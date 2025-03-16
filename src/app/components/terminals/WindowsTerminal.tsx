@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { windowCommands } from "@/app/components/terminals/commands/windowCommands";
 import {fontColors} from "@/app/components/terminals/fontColors";
+import {getLocalStorage, setLocalStorage} from "@/app/components/utils/color";
 
 
 const WindowsTerminal = ({onClose}) => {
@@ -8,13 +9,13 @@ const WindowsTerminal = ({onClose}) => {
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
     const terminalEndRef = useRef(null);
-    const [fontColor, setFontColor] = useState(fontColors['dark-green']);
+    const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
 
     const handleInput = (event) => {
         setInput(event.target.value);
     };
-
+    
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
             processCommand(input);
@@ -77,7 +78,7 @@ const WindowsTerminal = ({onClose}) => {
                 case "fontcolor":
                     if(cmdArgs.length == 0){
                         const string = "Try: 'fontcolor available' for listing all colors. \n" +
-                            "Try: 'fontcolor colorname' to change the font color "
+                            "Try: 'fontcolor <colorname>' to change the font color "
                         string.split('\n').map((line) => (
                             newOutput.push(line)
                         ))
@@ -87,7 +88,16 @@ const WindowsTerminal = ({onClose}) => {
                         })
                     }else{
                         console.log(fontColors[cmdArgs[0]]);
-                        setFontColor(fontColors[cmdArgs[0].split(' ')])
+                        if(fontColors.hasOwnProperty(cmdArgs[0])){
+                            setFontColor(fontColors[cmdArgs[0].split(' ')])
+                            setLocalStorage("fontColor", fontColors[cmdArgs[0].split(' ')]);
+                        }
+                        else {
+                            newOutput.push(`${cmdArgs[0]} is not a color available. Please choose a valid color from:`);
+                            Object.keys(fontColors).map((fontColor) => {
+                                newOutput.push(`-> ${fontColor}`)
+                            })
+                        }
 
                     }
                     break;
@@ -101,6 +111,12 @@ const WindowsTerminal = ({onClose}) => {
             setOutput(newOutput);
         }
     };
+
+    useEffect (() => {
+        if(getLocalStorage("fontColor") == null) setLocalStorage("fontColor", "dark-green");
+        else setFontColor(getLocalStorage("fontColor"));
+        console.log(getLocalStorage("fontColor"));
+    }, [])
 
     useEffect(() => {
         terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -136,7 +152,7 @@ const WindowsTerminal = ({onClose}) => {
                         value={input}
                         onChange={handleInput}
                         onKeyDown={handleKeyDown}
-                        className="bg-transparent text-green-600 outline-none flex-1 ml-2"
+                        className="bg-transparent outline-none flex-1 ml-2"
                         autoFocus
                         spellCheck={false}
                     />
