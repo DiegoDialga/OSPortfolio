@@ -22,7 +22,7 @@ export default function TerminalApp({title, onClose, onMinimize, maximized, mini
     } ;
 
     return(
-        <Draggable disabled={!cursorAtTerminalTitleBar}>
+        <Draggable>
         <div
             style={{backgroundColor: terminalBackground}}
             className={`
