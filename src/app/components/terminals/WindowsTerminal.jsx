@@ -1,15 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { windowCommands } from "@/app/components/terminals/commands/windowCommands";
+// @ts-nocheck
+import { SetStateAction, useEffect, useRef, useState} from "react";
+import {windowCommands} from "@/app/components/terminals/commands/windowCommands";
 import {fontColors} from "@/app/components/terminals/fontColors";
 import {getLocalStorage, setLocalStorage} from "@/app/components/utils/localStorage";
 import {backgroundTheme, terminalTheme} from "@/app/components/terminals/terminalTheme";
 
 
-const WindowsTerminal = ({background ,onClose}) => {
+const WindowsTerminal = ({background, onClose}) => {
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
     const terminalEndRef = useRef(null);
+    const inputFocusRef = useRef(null);
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
 
@@ -25,14 +27,14 @@ const WindowsTerminal = ({background ,onClose}) => {
     };
 
     const processCommand = (command) => {
-        const newOutput: (string | JSX.Element)[] = [...output, `${path}> ${command}`];
+        const newOutput = [...output, `${path}> ${command}`];
 
         const [cmd, ...cmdArgs] = command.toLowerCase().split(" ");
         console.log(cmd)
         console.log(cmdArgs)
 
 
-        if(cmd.toLowerCase() == "description"){
+        if(cmd.toLowerCase() === "description"){
 
             Object.keys(windowCommands).map((command) => {
                 const {description} = windowCommands[command];
@@ -42,7 +44,6 @@ const WindowsTerminal = ({background ,onClose}) => {
                     <span style={{color: fontColor}}>{description}</span>
             </span>)
             })
-
 
             setOutput(newOutput)
         } else {
@@ -118,14 +119,15 @@ const WindowsTerminal = ({background ,onClose}) => {
 
                         if(backgroundTheme.hasOwnProperty(cmdArgs[0]) && cmdArgs[1] == null){
                             background(terminalTheme(cmdArgs[0], 0.3))
+                            setLocalStorage("backgroundTheme", terminalTheme(cmdArgs[0], 0.3))
                             console.log("present")
                         }
                         else if(backgroundTheme.hasOwnProperty(cmdArgs[0]) && cmdArgs[1] != null){
-                            if(isNaN(cmdArgs[1])){
+                            if(isNaN(Number(cmdArgs[1]))){
                                 newOutput.push(`Invalid command! Please check the command again.`)
                             }else{
-
                                 background(terminalTheme(cmdArgs[0], parseFloat(cmdArgs[1])))
+                                setLocalStorage("backgroundTheme", terminalTheme(cmdArgs[0], parseFloat(cmdArgs[1])))
                             }
                         }
                         else{
@@ -160,7 +162,8 @@ const WindowsTerminal = ({background ,onClose}) => {
     return (
         <div
             style={{color: fontColor}}
-            className={`w-full h-full font-mono text-[17px] font-extrabold brightness-150`}>
+            className={`w-full h-full font-mono text-[17px] font-extrabold brightness-150`}
+            onClick={() => inputFocusRef.current?.focus()}>
             <span>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>
@@ -190,6 +193,7 @@ const WindowsTerminal = ({background ,onClose}) => {
                         className="bg-transparent outline-none flex-1 ml-2"
                         autoFocus
                         spellCheck={false}
+                        ref={inputFocusRef}
                     />
                 </div>
                 <br/>

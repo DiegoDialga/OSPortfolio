@@ -1,9 +1,8 @@
-import Draggable from "react-draggable";
 import Image from "next/image";
 
 const Icon = ({className, logo, name, onDoubleClick}) => {
+
     return(
-        <Draggable>
         <div
             className={`${className} w-[100px] -z-1 h-fit mb-3 text-center
             flex-col justify-center items-center
@@ -18,7 +17,6 @@ const Icon = ({className, logo, name, onDoubleClick}) => {
 
             <div className="bottom-0">{name}</div>
         </div>
-        </Draggable>
     )
 }
 
