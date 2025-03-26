@@ -25,5 +25,5 @@ export const backgroundTheme = {
 
 
 export const terminalTheme = (color = 'black', opacity = 0.3) => {
-    return `rgba(${backgroundTheme[color]}, ${opacity})`
+    return `rgba(${backgroundTheme[color as keyof typeof backgroundTheme]}, ${opacity})`
 }

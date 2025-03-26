@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+{/*import { useState, useEffect, useRef } from "react";
 
 const TerminalApp = ({ title, onClose, onMinimize, maximized }) => {
     const [output, setOutput] = useState(["Welcome to the terminal!", "Type 'help' to get started"]);
@@ -76,3 +76,4 @@ const TerminalApp = ({ title, onClose, onMinimize, maximized }) => {
 };
 
 export default TerminalApp;
+*/}

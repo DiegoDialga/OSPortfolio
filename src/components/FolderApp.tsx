@@ -1,25 +1,35 @@
+
 import React, {useState} from "react";
-import Draggable from "react-draggable";
+import WindowsTerminal from "@/components/terminals/WindowsTerminal";
+import {getLocalStorage} from "@/components/utils/localStorage";
+import Draggable from "@/components/utils/draggable";
 
 
 export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
-    const [cursorAtFolderTitleBar, setCursorAtFolderTitleBar] = useState(false);
+    const [terminalBackground, setTerminalBackground] = useState(getLocalStorage("backgroundTheme"));
 
-    const handleMouseEnter = () => {
-        setCursorAtFolderTitleBar(true)
+    const background = (theme) => {
+        setTerminalBackground(theme)
+        console.log("got called")
+    }
+
+    const handleMouseEnter = () =>{
+
         console.log("mouseenter");
-    };
-    const handleMouseLeave = () => {
-        setCursorAtFolderTitleBar(false)
+    } ;
+    const handleMouseLeave = () =>{
         console.log("mouseleft");
-    };
+    } ;
 
-    return (
-        <Draggable disabled={!cursorAtFolderTitleBar}>
-            <div className={`
-        ${maximized ? `w-screen h-[calc(100vh-70px}] top-0 left-0 rounded-none` : 'w-[750px] h-[500px]'}
-        ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}
-        w-[1440px] h-[720px] absolute rounded-[10px] bg-black/30 backdrop-blur-md text-white border border-gray-600`}>
+    return(
+        <Draggable>
+            <div
+                style={{backgroundColor: terminalBackground}}
+                className={`
+         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
+               ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'}
+         rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
+                {/*<Draggable handle=".titleBar">*/}
                 <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
@@ -38,6 +48,10 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
                     </div>
                 </div>
 
+                <WindowsTerminal background={background} onClose={onClose}/>
+
+
+                {/*</Draggable>*/}
             </div>
         </Draggable>
     )

@@ -4,5 +4,4 @@ export const fontColors = {
     'black': '#000000',
     'light-green': '#b8ee78',
     'dark-red': '#ff0000',
-
 }

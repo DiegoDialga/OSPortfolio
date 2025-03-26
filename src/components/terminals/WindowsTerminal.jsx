@@ -1,9 +1,9 @@
-// @ts-nocheck
-import { SetStateAction, useEffect, useRef, useState} from "react";
-import {windowCommands} from "@/app/components/terminals/commands/windowCommands";
-import {fontColors} from "@/app/components/terminals/fontColors";
-import {getLocalStorage, setLocalStorage} from "@/app/components/utils/localStorage";
-import {backgroundTheme, terminalTheme} from "@/app/components/terminals/terminalTheme";
+
+import { useEffect, useRef, useState} from "react";
+import {windowCommands} from "@/components/terminals/commands/windowCommands";
+import {fontColors} from "@/components/terminals/fontColors";
+import {getLocalStorage, setLocalStorage} from "@/components/utils/localStorage";
+import {backgroundTheme, terminalTheme} from "@/components/terminals/terminalTheme";
 
 
 const WindowsTerminal = ({background, onClose}) => {

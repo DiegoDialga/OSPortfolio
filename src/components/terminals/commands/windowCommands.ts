@@ -1,7 +1,7 @@
 const windowCommands = {
     "help": {
         description: "Displays the list of all available commands",
-        output: "Available commands: help, description, clear, aboutme, fontcolor, echo, gmail, projects, socials, portfolio, exit",
+        output: "Available commands: help, description, clear, aboutme, fontcolor, background, echo, gmail, projects, socials, portfolio, exit",
     },
     "clear": {
         description: "Clears the terminal screen",
@@ -36,14 +36,19 @@ const windowCommands = {
         -> Twitter(X)\t\t\thttps://x.com/commenter_d\n
         -> Instagram\t\t\thttps://www.instagram.com/deepanshunegi10\n`
     },
+    "fontcolor": {
+        description: "Shows available font colors and sets the font to preferred color.",
+        output: null
+    },
+    "background": {
+        description: "Shows and sets available themes for terminal background.",
+        output: null
+    },
     "exit": {
         description: "Exits the terminal screen",
         output: "Bye Bye!"
     },
-    "fontcolor": {
-        description: "Shows available font colors and sets the font to preferred color.",
-        output: null
-    }
+
 }
 
 export { windowCommands }
