@@ -7,6 +7,7 @@ import Taskbar from "@/components/taskbar/taskbar";
 import TerminalApp from "@/components/TerminalApp";
 import './desktop.css';
 import FolderApp from "@/components/FolderApp";
+import Draggable from "@/components/utils/draggable";
 
 
 const Desktop = () => {
@@ -49,9 +50,12 @@ const Desktop = () => {
     const bringAppToFront = (appName) => setFocusedApp(appName);
     return(
         <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
+            <Draggable>
             <Icon className="absolute top-10 left-10" logo={'/images/window-cmd-icon.png'} name="Command prompt" onDoubleClick={() => openApp("Terminal")} />
+            </Draggable>
+            <Draggable>
             <Icon className="absolute top-10 left-[200px]" logo={'/images/folder-icon.webp'} name="Folder" onDoubleClick={() => openApp('Projects')} />
-
+            </Draggable>
 
             {openWindows.map((app) => (
                 <Window

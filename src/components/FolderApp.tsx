@@ -1,20 +1,11 @@
 
-import React, {useState} from "react";
-import WindowsTerminal from "@/components/terminals/WindowsTerminal";
-import {getLocalStorage} from "@/components/utils/localStorage";
+import React from "react";
 import Draggable from "@/components/utils/draggable";
 
 
 export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
-    const [terminalBackground, setTerminalBackground] = useState(getLocalStorage("backgroundTheme"));
-
-    const background = (theme) => {
-        setTerminalBackground(theme)
-        console.log("got called")
-    }
 
     const handleMouseEnter = () =>{
-
         console.log("mouseenter");
     } ;
     const handleMouseLeave = () =>{
@@ -24,7 +15,6 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
     return(
         <Draggable>
             <div
-                style={{backgroundColor: terminalBackground}}
                 className={`
          ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
                ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'}
@@ -47,8 +37,6 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
                         <button onClick={onClose} className="w-[50px] h-full text-white hover:bg-red-600">✕</button>
                     </div>
                 </div>
-
-                <WindowsTerminal background={background} onClose={onClose}/>
 
 
                 {/*</Draggable>*/}
