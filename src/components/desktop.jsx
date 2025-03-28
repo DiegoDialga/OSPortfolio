@@ -19,8 +19,15 @@ const Desktop = () => {
     const apps = [
         { name: "Terminal", logo: "/images/window-cmd-icon.png" },
         { name: "Projects", logo: "/images/folder-icon.webp" },
-        { name: "Google", logo: "/images/google-icon.png" }
+        { name: "Google Chrome", logo: "/images/chrome-icon.png" }
     ];
+
+    const appComponents = {
+        Terminal: TerminalApp,
+        Projects: FolderApp,
+        "Google Chrome": GoogleApp,
+    };
+
 
     const openApp = (appName) => {
         if (!openWindows.includes(appName)) {
@@ -69,18 +76,18 @@ const Desktop = () => {
                 ))}
             </div>
 
-            {/* Render Windows Dynamically */}
-            {openWindows.map((app) => (
-                <Window
-                    key={app}
-                    onClick={() => bringAppToFront(app)}
-                    style={{
-                        zIndex: focusedApp === app ? 1000 : 1,
-                    }}
-                >
-                    {app === "Terminal" ? (
-                        <TerminalApp
-                            title={"Command Prompt"}
+            {openWindows.map((app) => {
+                const AppComponent = appComponents[app];
+                const appData = apps.find((a) => a.name === app); // Find app details from your array
+
+                return AppComponent ? (
+                    <Window
+                        key={app}
+                        onClick={() => bringAppToFront(app)}
+                        style={{ zIndex: focusedApp === app ? 1000 : 1 }}
+                    >
+                        <AppComponent
+                            title={appData?.name || app} // Use name from array if available
                             onClose={() => closeApp(app)}
                             onMaximize={() => maximizeApp(app)}
                             onMinimize={() => minimizeApp(app)}
@@ -88,29 +95,9 @@ const Desktop = () => {
                             minimized={minimizedWindows.includes(app)}
                             onRestoreMaximized={() => restoreMaximizedApp(app)}
                         />
-                    ) : app === "Projects" ? (
-                        <FolderApp
-                            title={"Projects"}
-                            onClose={() => closeApp(app)}
-                            onMaximize={() => maximizeApp(app)}
-                            onMinimize={() => minimizeApp(app)}
-                            maximized={maximizedWindows.includes(app)}
-                            minimized={minimizedWindows.includes(app)}
-                            onRestoreMaximized={() => restoreMaximizedApp(app)}
-                        />
-                    ) : app === "Google" ? (
-                        <GoogleApp
-                            title={"Google"}
-                            onClose={() => closeApp(app)}
-                            onMaximize={() => maximizeApp(app)}
-                            onMinimize={() => minimizeApp(app)}
-                            maximized={maximizedWindows.includes(app)}
-                            minimized={minimizedWindows.includes(app)}
-                            onRestoreMaximized={() => restoreMaximizedApp(app)}
-                        />
-                    ) : null}
-                </Window>
-            ))}
+                    </Window>
+                ) : null;
+            })}
 
             {/* Taskbar */}
             <Taskbar

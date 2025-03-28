@@ -1,4 +1,7 @@
-
+/*
+*This component uses iframe to embed another site on the page. This is one of my old projects. The link for this project is:
+* https://github.com/DiegoDialga/Google-clone
+*/
 import React from "react";
 import Draggable from "@/components/utils/draggable";
 

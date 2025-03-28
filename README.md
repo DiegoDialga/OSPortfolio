@@ -24,6 +24,8 @@ OSPortfolio is a Windows-inspired terminal portfolio built using Next.js, design
 
 🛠 Multi-Tab Terminal Support
 
+@ Change the files from js to ts.
+
 <h2>🛠 Tech Stack</h2>
 
 Frontend: Next.js, React, Tailwind CSS

@@ -5,7 +5,7 @@ import BatteryStatus from "@/components/taskbar/batteryStatus";
 const iconMapping = {
     'Terminal': '/images/window-cmd-icon.png',
     'Projects': '/images/folder-icon.webp',
-    'Google': '/images/folder-icon.webp',
+    'Google Chrome': '/images/chrome-icon.png',
 };
 
 const Taskbar = ({ openWindows, restoreApp, minimizeApp, minimized, focusedApp }) => {
