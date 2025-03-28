@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import {useState} from "react";
+import { useState } from "react";
 import Icon from "@/components/icon";
 import Window from "@/components/window";
 import Taskbar from "@/components/taskbar/taskbar";
 import TerminalApp from "@/components/TerminalApp";
-import './desktop.css';
 import FolderApp from "@/components/FolderApp";
+import GoogleApp from "@/components/GoogleApp";
 import Draggable from "@/components/utils/draggable";
-
+import './desktop.css';
 
 const Desktop = () => {
     const [openWindows, setOpenWindows] = useState([]);
@@ -16,8 +16,14 @@ const Desktop = () => {
     const [minimizedWindows, setMinimizedWindows] = useState([]);
     const [focusedApp, setFocusedApp] = useState(null);
 
+    const apps = [
+        { name: "Terminal", logo: "/images/window-cmd-icon.png" },
+        { name: "Projects", logo: "/images/folder-icon.webp" },
+        { name: "Google", logo: "/images/google-icon.png" }
+    ];
+
     const openApp = (appName) => {
-        if(!openWindows.includes(appName)) {
+        if (!openWindows.includes(appName)) {
             setOpenWindows([...openWindows, appName]);
         }
     };
@@ -27,13 +33,13 @@ const Desktop = () => {
     };
 
     const maximizeApp = (appName) => {
-        if(!maximizedWindows.includes(appName)) {
+        if (!maximizedWindows.includes(appName)) {
             setMaximizedWindows([...maximizedWindows, appName]);
         }
     };
 
     const minimizeApp = (appName) => {
-        if(!minimizedWindows.includes(appName)) {
+        if (!minimizedWindows.includes(appName)) {
             setMinimizedWindows([...minimizedWindows, appName]);
             setFocusedApp(null);
         }
@@ -48,50 +54,74 @@ const Desktop = () => {
     };
 
     const bringAppToFront = (appName) => setFocusedApp(appName);
-    return(
-        <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
-            <Draggable>
-            <Icon className="absolute top-10 left-10" logo={'/images/window-cmd-icon.png'} name="Command prompt" onDoubleClick={() => openApp("Terminal")} />
-            </Draggable>
-            <Draggable>
-            <Icon className="absolute top-10 left-[200px]" logo={'/images/folder-icon.webp'} name="Folder" onDoubleClick={() => openApp('Projects')} />
-            </Draggable>
 
+    return (
+        <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
+            <div className="grid grid-cols-3 gap-10 p-10">
+                {apps.map((app, index) => (
+                    <Draggable key={app.name} defaultPosition={{ x: index * 150, y: 50 }}>
+                        <Icon
+                            logo={app.logo}
+                            name={app.name}
+                            onDoubleClick={() => openApp(app.name)}
+                        />
+                    </Draggable>
+                ))}
+            </div>
+
+            {/* Render Windows Dynamically */}
             {openWindows.map((app) => (
                 <Window
                     key={app}
                     onClick={() => bringAppToFront(app)}
                     style={{
                         zIndex: focusedApp === app ? 1000 : 1,
-                    }}>
-                    {
-                        app === "Terminal" ?
-                            <TerminalApp title={"Command Prompt"} onClose={() => closeApp(app)}
-                                         onMaximize={() => maximizeApp(app)}
-                                         onMinimize={() => minimizeApp(app)}
-                                         maximized={maximizedWindows.includes(app)}
-                                         minimized={minimizedWindows.includes(app)}
-                                         onRestoreMaximized={() => restoreMaximizedApp(app)}/>
-                            :
-                            <FolderApp title={"Folder"} onClose={() => closeApp(app)}
-                                       onMaximize={() => maximizeApp(app)}
-                                       onMinimize={() => minimizeApp(app)}
-                                       maximized={maximizedWindows.includes(app)}
-                                       minimized={minimizedWindows.includes(app)}
-                                       onRestoreMaximized={() => restoreMaximizedApp(app)}/>
-                    }
+                    }}
+                >
+                    {app === "Terminal" ? (
+                        <TerminalApp
+                            title={"Command Prompt"}
+                            onClose={() => closeApp(app)}
+                            onMaximize={() => maximizeApp(app)}
+                            onMinimize={() => minimizeApp(app)}
+                            maximized={maximizedWindows.includes(app)}
+                            minimized={minimizedWindows.includes(app)}
+                            onRestoreMaximized={() => restoreMaximizedApp(app)}
+                        />
+                    ) : app === "Projects" ? (
+                        <FolderApp
+                            title={"Projects"}
+                            onClose={() => closeApp(app)}
+                            onMaximize={() => maximizeApp(app)}
+                            onMinimize={() => minimizeApp(app)}
+                            maximized={maximizedWindows.includes(app)}
+                            minimized={minimizedWindows.includes(app)}
+                            onRestoreMaximized={() => restoreMaximizedApp(app)}
+                        />
+                    ) : app === "Google" ? (
+                        <GoogleApp
+                            title={"Google"}
+                            onClose={() => closeApp(app)}
+                            onMaximize={() => maximizeApp(app)}
+                            onMinimize={() => minimizeApp(app)}
+                            maximized={maximizedWindows.includes(app)}
+                            minimized={minimizedWindows.includes(app)}
+                            onRestoreMaximized={() => restoreMaximizedApp(app)}
+                        />
+                    ) : null}
                 </Window>
             ))}
 
+            {/* Taskbar */}
             <Taskbar
                 openWindows={openWindows}
                 restoreApp={restoreMinimizedApp}
                 minimizeApp={minimizeApp}
                 minimized={minimizedWindows}
-                focusedApp={bringAppToFront}/>
-
+                focusedApp={bringAppToFront}
+            />
         </div>
-    )
-}
+    );
+};
 
 export default Desktop;

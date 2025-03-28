@@ -3,26 +3,17 @@ import React from "react";
 import Draggable from "@/components/utils/draggable";
 
 
-export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
-
-    const handleMouseEnter = () =>{
-        console.log("mouseenter");
-    } ;
-    const handleMouseLeave = () =>{
-        console.log("mouseleft");
-    } ;
+export default function GoogleApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
 
     return(
         <Draggable>
             <div
                 className={`
-         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-80px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
+         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] overflow-hidden rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
                ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'}
          rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
                 {/*<Draggable handle=".titleBar">*/}
                 <div
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     className={`titleBar h-[40px] flex justify-between items-center 
                 bg-black/40 backdrop-blur-md text-white 
                 rounded-t-[11px] overflow-hidden`}>
@@ -48,7 +39,7 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
 }
 const EmbeddedSite = () => {
     return (
-        <div className="w-full h-full">
+        <div className="bg-white w-full h-full">
             <iframe
                 src="https://cheerful-medovik-8565b1.netlify.app/"
                 width="100%"

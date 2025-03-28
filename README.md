@@ -1,41 +1,80 @@
-<<<<<<< HEAD
-# OSPortfolio
-A portfolio website, crrently in progress.
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1>OSPortfolio - Windows Themed Terminal Portfolio</h1>
 
-## Getting Started
+<h2>🖥️ Overview</h2>
 
-First, run the development server:
+OSPortfolio is a Windows-inspired terminal portfolio built using Next.js, designed to function as an interactive, resizable, and customizable personal portfolio.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<h2>🚀 Features (Current & Planned)</h2>
+
+✔ Windows OS UI – A clean, Windows-like interface.<br/>
+✔ Interactive Taskbar – Dynamic taskbar with app shortcuts(still in progress).<br/>
+✔ Terminal Integration – Type commands to navigate and interact.
+
+<h2>🛠 Planned Features:</h2>
+
+🏗 Support for Other OS Themes (Linux, macOS, etc.)
+
+📂 Folder UI (Includes Resume, Projects, Custom Files)
+
+🔍 Search Bar in Taskbar
+
+📏 Resizable Windows & Apps (Drag to Resize)
+
+🎨 Customizable Themes & Wallpapers
+
+🛠 Multi-Tab Terminal Support
+
+<h2>🛠 Tech Stack</h2>
+
+Frontend: Next.js, React, Tailwind CSS
+
+📂 Project Structure
+```plaintext
+/osportfolio
+ ├── .idea/                # Project settings (IDE specific)
+ ├── .next/                # Next.js build output
+ ├── node_modules/         # Dependencies
+ ├── out/                  # Static export output
+ ├── public/               # Static assets (icons, wallpapers)
+ ├── src/
+ │   ├── app/              # Main application files
+ │   │   ├── favicon.ico
+ │   │   ├── globals.css
+ │   │   ├── layout.tsx
+ │   │   └── page.tsx
+ │   ├── components/       # Reusable UI components
+ │   │   ├── taskbar/
+ │   │   ├── terminals/
+ │   │   ├── utils/
+ │   │   │   ├── desktop.css
+ │   │   │   ├── desktop.jsx
+ │   │   │   ├── FolderApp.tsx
+ │   │   │   ├── GoogleApp.tsx
+ │   │   │   ├── icon.jsx
+ │   │   │   ├── TempTerminal.tsx
+ │   │   │   ├── TerminalApp.tsx
+ │   │   │   ├── window.tsx
+ ├── fonts/                # Font assets
+ ├── .eslintrc.json        # ESLint configuration
+ ├── .gitignore            # Git ignore file
+ ├── next.config.mjs       # Next.js Configuration
+ ├── next-env.d.ts         # TypeScript environment settings
+ ├── package.json          # Project dependencies
+ ├── README.md             # Documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<h2>🚀 Installation & Setup</h2>
+```
+git clone https://github.com/yourusername/osportfolio.git
+cd osportfolio
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open http://localhost:3000 in your browser.
 
-## Learn More
+🤝 Contributions & Feedback
 
-To learn more about Next.js, take a look at the following resources:
+Want to suggest a feature or contribute? Open an issue or a pull request! 🚀
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 5b9af03 (first commit for this project)

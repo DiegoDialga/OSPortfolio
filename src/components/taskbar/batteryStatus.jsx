@@ -1,5 +1,4 @@
-
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const BatteryStatus = () => {
     const [battery, setBattery] = useState({
@@ -8,32 +7,40 @@ const BatteryStatus = () => {
     });
 
     useEffect(() => {
-        const getBattery = async () => {
-            if('getBattery' in navigator) {
-                const battery = await navigator.getBattery();
-                setBattery({
-                    level: battery.level,
-                    charging: battery.charging
-                });
+        let batteryManager;
 
-                battery.addEventListener('levelchange', () =>
-                    setBattery((prev) => ({ ...prev, level: battery.level }))
-                );
-                battery.addEventListener('chargingchange', () =>
-                    setBattery((prev) => ({ ...prev, charging: battery.charging }))
-                );
-            }else{
-                console.log("Battery API not supported on this browser.")
+        const updateBatteryStatus = () => {
+            setBattery({
+                level: batteryManager.level,
+                charging: batteryManager.charging
+            });
+        };
+
+        const getBattery = async () => {
+            if ('getBattery' in navigator) {
+                batteryManager = await navigator.getBattery();
+                updateBatteryStatus();
+
+                batteryManager.addEventListener('levelchange', updateBatteryStatus);
+                batteryManager.addEventListener('chargingchange', updateBatteryStatus);
+            } else {
+                console.log("Battery API not supported on this browser.");
             }
         };
 
         getBattery();
+
+        return () => {
+            if (batteryManager) {
+                batteryManager.removeEventListener('levelchange', updateBatteryStatus);
+                batteryManager.removeEventListener('chargingchange', updateBatteryStatus);
+            }
+        };
     }, []);
 
     return (
         <div className="text-white w-fit m-4 flex-row justify-center items-center">
-            <p>{Math.round(battery.level * 100)}%</p>
-            <p>{battery.charging ? 'Charging ⚡' : 'Not Charging 🔋'}</p>
+            <p suppressHydrationWarning className="text-sm font-thin">{Math.round(battery.level * 100)}%</p>
         </div>
     );
 }
