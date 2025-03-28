@@ -72,8 +72,8 @@ Frontend: Next.js, React, Tailwind CSS
 
 
 <h2>🚀 Installation & Setup</h2>
-```
-git clone https://github.com/yourusername/osportfolio.git
+```sh
+git clone https://github.com/DiegoDialga/osportfolio.git
 cd osportfolio
 npm install
 npm run dev
