@@ -1,5 +1,10 @@
 <h1>OSPortfolio - Windows Themed Terminal Portfolio</h1>
 
+![OSPortfolio Preview](public/images/desktop-ss.png)
+
+![OSPortfolio Preview](public/images/terminal-ss.png)
+
+
 <h2>🖥️ Overview</h2>
 
 OSPortfolio is a Windows-inspired terminal portfolio built using Next.js, designed to function as an interactive, resizable, and customizable personal portfolio.
