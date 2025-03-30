@@ -1,4 +1,4 @@
-<h1>OSPortfolio - Windows Themed Terminal Portfolio</h1>
+<h1>OSPortfolio - Window Themed Terminal Portfolio</h1>
 
 ![OSPortfolio Preview](public/images/desktop-ss.png)
 
