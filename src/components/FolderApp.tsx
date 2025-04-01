@@ -1,6 +1,9 @@
 
 import React from "react";
 import Draggable from "@/components/utils/draggable";
+import PDFViewer from "@/components/utils/PDFViewer";
+import Window from "@/components/utils/window";
+import Image from "next/image";
 
 
 export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
@@ -16,15 +19,15 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
         <Draggable>
             <div
                 className={`
-         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-80px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
-               ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'}
+         ${maximized ? ` fixed top-0 left-0 w-screen h-[calc(100vh-50px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
+               ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all cursor-default'}
          rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
                 {/*<Draggable handle=".titleBar">*/}
                 <div
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className={`titleBar h-[40px] flex justify-between items-center 
-                bg-black/40 backdrop-blur-md text-white 
+                bg-black/70 text-white 
                 rounded-t-[11px] overflow-hidden`}>
                     <span className="pl-3">{title}</span>
                     <div className="h-full">
@@ -37,8 +40,15 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
                         <button onClick={onClose} className="w-[50px] h-full text-white hover:bg-red-600">✕</button>
                     </div>
                 </div>
+                <div className={"bg-black/90 w-full h-full"}>
+                <Window>
+                    <div className="flex flex-col items-center justify-center hover:bg-gray-500 p-3 rounded" onClick={() => PDFViewer('/pdf/resume.pdf')}>
+                    <Image className="mb-1" src={'/images/pdf-icon.webp'} width={50} height={50} alt={"pdf"} />
+                    <p>Resume</p>
+                    </div>
+                </Window>
+                </div>
 
-                <EmbeddedSite />
 
 
                 {/*</Draggable>*/}
@@ -46,16 +56,3 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
         </Draggable>
     )
 }
-const EmbeddedSite = () => {
-    return (
-        <div className="w-full h-full">
-            <iframe
-                src="https://cheerful-medovik-8565b1.netlify.app/"
-                width="100%"
-                height="100%"
-                style={{ border: "none" }}
-            ></iframe>
-        </div>
-    );
-};
-

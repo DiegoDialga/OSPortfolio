@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Icon from "@/components/icon";
-import Window from "@/components/window";
+import Window from "@/components/utils/window";
 import Taskbar from "@/components/taskbar/taskbar";
 import TerminalApp from "@/components/TerminalApp";
 import FolderApp from "@/components/FolderApp";
@@ -18,13 +18,13 @@ const Desktop = () => {
 
     const apps = [
         { name: "Terminal", logo: "/images/window-cmd-icon.png" },
-        { name: "Projects", logo: "/images/folder-icon.webp" },
+        { name: "Folder", logo: "/images/folder-icon.webp" },
         { name: "Google Chrome", logo: "/images/chrome-icon.png" }
     ];
 
     const appComponents = {
         Terminal: TerminalApp,
-        Projects: FolderApp,
+        Folder: FolderApp,
         "Google Chrome": GoogleApp,
     };
 
@@ -78,7 +78,7 @@ const Desktop = () => {
 
             {openWindows.map((app) => {
                 const AppComponent = appComponents[app];
-                const appData = apps.find((a) => a.name === app); // Find app details from your array
+                const appData = apps.find((a) => a.name === app);
 
                 return AppComponent ? (
                     <Window
@@ -87,7 +87,7 @@ const Desktop = () => {
                         style={{ zIndex: focusedApp === app ? 1000 : 1 }}
                     >
                         <AppComponent
-                            title={appData?.name || app} // Use name from array if available
+                            title={appData?.name || app}
                             onClose={() => closeApp(app)}
                             onMaximize={() => maximizeApp(app)}
                             onMinimize={() => minimizeApp(app)}

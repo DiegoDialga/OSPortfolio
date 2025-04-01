@@ -1,9 +1,9 @@
 
 import React from "react";
 
-const Window = ({ children, onClick, style }) => {
+const Window = ({ children, style = {flex: 1} }) => {
     return (
-        <div className="absolute" onDrag={onClick} onClick={onClick} style={style}>
+        <div className="absolute cursor-default"  style={style}>
 
 
                     <div className="p-4">{children}</div>
