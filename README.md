@@ -83,5 +83,5 @@ Then open http://localhost:3000 in your browser.
 
 🤝 Contributions & Feedback
 
-Want to suggest a feature or contribute? Open an issue or a pull request! 🚀
+Want to suggest a feature or contribute? Open an issue or a pull request! 🚀!
 
