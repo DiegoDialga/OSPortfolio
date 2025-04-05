@@ -14,7 +14,7 @@ const Desktop = () => {
     const [openWindows, setOpenWindows] = useState([]);
     const [maximizedWindows, setMaximizedWindows] = useState([]);
     const [minimizedWindows, setMinimizedWindows] = useState([]);
-    const [focusedApp, setFocusedApp] = useState(null);
+    const [focusedApp, setFocusedApp] = useState("");
 
     const apps = [
         { name: "Terminal", logo: "/images/window-cmd-icon.png" },

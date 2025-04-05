@@ -11,7 +11,7 @@ const Draggable: React.FC<DraggableProps> = ({ children, defaultPosition = { x: 
     const [offset, setOffset] = useState({ x: 0, y: 0 });
 
     const handleMouseDown = (e: React.MouseEvent) => {
-        e.preventDefault(); // Prevents text selection issues
+        e.preventDefault();
         setDragging(true);
         setOffset({
             x: e.clientX - position.x,
@@ -34,7 +34,7 @@ const Draggable: React.FC<DraggableProps> = ({ children, defaultPosition = { x: 
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp} // Stops dragging if mouse leaves window
+            onMouseLeave={handleMouseUp}
             style={{
                 position: "absolute",
                 left: `${position.x}px`,
