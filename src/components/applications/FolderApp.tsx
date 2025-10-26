@@ -1,9 +1,10 @@
 
 import React from "react";
-import Draggable from "@/components/utils/draggable";
-import PDFViewer from "@/components/utils/PDFViewer";
-import Window from "@/components/utils/window";
+import Draggable from "../utils/draggable";
+import PDFViewer from "../utils/PDFViewer";
+import Window from "../utils/window";
 import Image from "next/image";
+import {getUserFromStorage} from "@/localStorage";
 
 
 export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
@@ -42,7 +43,14 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
                 </div>
                 <div className={"bg-black/90 w-full h-full"}>
                 <Window>
-                    <div className="flex flex-col items-center justify-center hover:bg-gray-500 p-3 rounded" onClick={() => PDFViewer('/pdf/resume.pdf')}>
+                    <div className="flex flex-col items-center justify-center hover:bg-gray-500 p-3 rounded" onClick={() => {
+                        if (getUserFromStorage() == 'Deepanshu'){
+                            PDFViewer('/pdf/deepanshu/resume.pdf')
+                        }else{
+                        PDFViewer('/pdf/jigyasa/resume.pdf')}
+                    }
+                    }
+                       >
                     <Image className="mb-1" src={'/images/pdf-icon.webp'} width={50} height={50} alt={"pdf"} />
                     <p>Resume</p>
                     </div>

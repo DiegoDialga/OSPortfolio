@@ -1,9 +1,14 @@
-import Desktop from "@/components/desktop";
+"use client"
+import SplashScreen from "../../src/components/SplashScreen";
 
 export default function Home() {
   return (
     <>
-      <Desktop />
+        {/*<Page />*/}
+        <SplashScreen />
     </>
   );
+
+
 }
+

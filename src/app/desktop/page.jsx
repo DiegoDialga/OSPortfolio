@@ -1,31 +1,45 @@
 "use client";
 
-import { useState } from "react";
-import Icon from "@/components/icon";
-import Window from "@/components/utils/window";
-import Taskbar from "@/components/taskbar/taskbar";
-import TerminalApp from "@/components/TerminalApp";
-import FolderApp from "@/components/FolderApp";
-import GoogleApp from "@/components/GoogleApp";
-import Draggable from "@/components/utils/draggable";
-import './desktop.css';
+import {useEffect, useState} from "react";
+import Icon from '../../components/icon'
+import Window from "../../components/utils/window";
+import Taskbar from "../../components/taskbar/taskbar";
+import TerminalApp from "../../components/applications/TerminalApp";
+import FolderApp from "../../components/applications/FolderApp";
+import GoogleApp from "../../components/applications/GoogleApp";
+import Draggable from "../../components/utils/draggable";
+import '../../components/desktop.css';
+import {useRouter} from "next/navigation";
+import SuggestionApp from "@/components/applications/SuggestionApp";
 
-const Desktop = () => {
+const Page = () => {
+    const router = useRouter();
     const [openWindows, setOpenWindows] = useState([]);
     const [maximizedWindows, setMaximizedWindows] = useState([]);
     const [minimizedWindows, setMinimizedWindows] = useState([]);
     const [focusedApp, setFocusedApp] = useState("");
 
+
+
+    useEffect(() => {
+        const savedUser = localStorage.getItem("selectedUser");
+        if (!savedUser) {
+            router.push("/"); // go back to login if no user is signed in
+        }
+    }, [router]);
+
     const apps = [
         { name: "Terminal", logo: "/images/window-cmd-icon.png" },
         { name: "Folder", logo: "/images/folder-icon.webp" },
-        { name: "Google Chrome", logo: "/images/chrome-icon.png" }
+        { name: "Google Chrome", logo: "/images/chrome-icon.png" },
+        {name: "Give Suggestions", logo: "/images/folder-icon.webp"}
     ];
 
     const appComponents = {
         Terminal: TerminalApp,
         Folder: FolderApp,
         "Google Chrome": GoogleApp,
+        "Give Suggestions": SuggestionApp
     };
 
 
@@ -66,7 +80,7 @@ const Desktop = () => {
         <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
             <div className="grid grid-cols-3 gap-10 p-10">
                 {apps.map((app, index) => (
-                    <Draggable key={app.name} defaultPosition={{ x: index * 150, y: 50 }}>
+                    <Draggable key={app.name} defaultPosition={{ x: index * 100, y: 50 }}>
                         <Icon
                             logo={app.logo}
                             name={app.name}
@@ -111,4 +125,4 @@ const Desktop = () => {
     );
 };
 
-export default Desktop;
+export default Page;

@@ -6,13 +6,13 @@ const iconMapping = {
     'Terminal': '/images/window-cmd-icon.png',
     'Folder': '/images/folder-icon.webp',
     'Google Chrome': '/images/chrome-icon.png',
+    'Suggestion App': '/images/suggestion-icon.png',
 };
 
 const Taskbar = ({ openWindows, restoreApp, minimizeApp, minimized, focusedApp }) => {
     const [time, setTime] = useState(new Date());
     const startMenuRef = useRef(null);
     const [showStartMenu, setShowStartMenu] = useState(false);
-    const batteryRef = useRef(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -69,9 +69,12 @@ const Taskbar = ({ openWindows, restoreApp, minimizeApp, minimized, focusedApp }
             </div>
             <div className="ml-auto w-fit flex flex-row justify-center items-center">
                 <BatteryStatus />
-                <div className="font-thin text-sm" suppressHydrationWarning>
+                <div className="font-thin text-sm flex-col items-end justify-end" suppressHydrationWarning>
                     <p>
                         {time.getHours()}:{time.getMinutes().toString().padStart(2, '0')}
+                    </p>
+                    <p>
+                        {time.getHours()}-{time.getMonth()}-{time.getFullYear()}
                     </p>
                 </div>
             </div>

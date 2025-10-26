@@ -7,12 +7,12 @@ const Icon = ({className, logo, name, onDoubleClick}) => {
             className={`${className} w-[100px] -z-1 h-fit mb-3 text-center
             flex-col justify-center items-center
             cursor-pointer text-white
-            hover:scale-110 hover:bg-gray-500
+            hover:scale-110 hover:bg-gray-600
             rounded transition-transform`}
             onDoubleClick={onDoubleClick}>
 
             <div className="flex justify-center items-center">
-            <Image src={logo} width={60} height={60} alt={"logo"} />
+            <Image src={logo} width={50} height={50} alt={"logo"} />
             </div>
 
             <div className="bottom-0">{name}</div>

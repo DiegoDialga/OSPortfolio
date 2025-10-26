@@ -54,7 +54,7 @@ Frontend: Next.js, React, Tailwind CSS
  │   │   ├── terminals/
  │   │   ├── utils/
  │   │   │   ├── desktop.css
- │   │   │   ├── desktop.jsx
+ │   │   │   ├── page.jsx
  │   │   │   ├── FolderApp.tsx
  │   │   │   ├── GoogleApp.tsx
  │   │   │   ├── icon.jsx

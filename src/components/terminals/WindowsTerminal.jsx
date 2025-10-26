@@ -6,6 +6,7 @@ import {getLocalStorage, setLocalStorage} from "@/components/utils/localStorage"
 import {backgroundTheme, terminalTheme} from "@/components/terminals/terminalTheme";
 
 
+
 const WindowsTerminal = ({background, onClose}) => {
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
@@ -14,6 +15,12 @@ const WindowsTerminal = ({background, onClose}) => {
     const inputFocusRef = useRef(null);
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
+    useEffect(()=>{
+        console.log("hello")
+
+    }, [output])
+
+    const user = localStorage.getItem("selectedUser").toLowerCase();
 
     const handleInput = (event) => {
         setInput(event.target.value);
@@ -36,8 +43,8 @@ const WindowsTerminal = ({background, onClose}) => {
 
         if(cmd.toLowerCase() === "description"){
 
-            Object.keys(windowCommands).map((command) => {
-                const {description} = windowCommands[command];
+            Object.keys(windowCommands[user]).map((command) => {
+                const {description} = windowCommands[user][command];
 
                 newOutput.push(<span key={command}>
                 <span className="text-white  font-bold">{command}</span>:{" "}
@@ -49,13 +56,13 @@ const WindowsTerminal = ({background, onClose}) => {
         } else {
             switch (cmd.toLowerCase()) {
                 case "help":
-                    newOutput.push(windowCommands.help.output);
+                    newOutput.push(windowCommands[user].help.output);
                     break;
                 case "clear":
                     setOutput([]);
                     return;
                 case "aboutme":
-                    windowCommands.aboutme.output.split('\n').map((line) => (
+                    windowCommands[user].aboutme.output.split('\n').map((line) => (
                         newOutput.push(line)
                     ))
                     break;
@@ -63,17 +70,22 @@ const WindowsTerminal = ({background, onClose}) => {
                     newOutput.push(cmdArgs);
                     break;
                 case "gmail":
-                    newOutput.push(windowCommands.gmail.output);
+                    newOutput.push(windowCommands[user].gmail.output);
                     //window.open(`https://${windowCommands.gmail.output}`, "_blank");
                     break
                 case "portfolio":
-                    window.open(`https://${windowCommands.portfolio.output}`, "_blank");
-                    break;
+                    window.open(`https://${windowCommands[user].portfolio.output}`, "_blank");
+                    break
+                case "projects":
+                    windowCommands[user].projects.output.split('\n').map((line) => (
+                        newOutput.push(line)
+                    ))
+                    break
                 case "history":
                     newOutput.push(newOutput.join("\n"));
                     break
                 case "socials":
-                    windowCommands.socials.output.split('\n').map((line) => (
+                    windowCommands[user].socials.output.split('\n').map((line) => (
                         newOutput.push(line)
                     ))
                     break
