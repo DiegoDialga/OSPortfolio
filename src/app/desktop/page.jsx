@@ -11,6 +11,7 @@ import Draggable from "../../components/utils/draggable";
 import '../../components/desktop.css';
 import {useRouter} from "next/navigation";
 import SuggestionApp from "@/components/applications/SuggestionApp";
+import TinderApp from "../../components/applications/TinderApp";
 
 const Page = () => {
     const router = useRouter();
@@ -32,14 +33,16 @@ const Page = () => {
         { name: "Terminal", logo: "/images/window-cmd-icon.png" },
         { name: "Folder", logo: "/images/folder-icon.webp" },
         { name: "Google Chrome", logo: "/images/chrome-icon.png" },
-        {name: "Give Suggestions", logo: "/images/folder-icon.webp"}
+        {name: "Suggestion", logo: "/images/suggestion.png"},
+        {name: "Tinder", logo: "/images/tinder-icon.png" },
     ];
 
     const appComponents = {
         Terminal: TerminalApp,
         Folder: FolderApp,
         "Google Chrome": GoogleApp,
-        "Give Suggestions": SuggestionApp
+        "Suggestion": SuggestionApp,
+        "Tinder": TinderApp,
     };
 
 
