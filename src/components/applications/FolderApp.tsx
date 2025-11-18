@@ -4,7 +4,7 @@ import Draggable from "../utils/draggable";
 import PDFViewer from "../utils/PDFViewer";
 import Window from "../utils/window";
 import Image from "next/image";
-import {getUserFromStorage} from "@/localStorage";
+import {getUserFromStorage} from "@/lib/localStorage";
 
 
 export default function FolderApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
@@ -17,7 +17,7 @@ export default function FolderApp({title, onClose, onMinimize, maximized, minimi
     } ;
 
     return(
-        <Draggable>
+        <Draggable handle=".titleBar">
             <div
                 className={`
          ${maximized ? ` fixed top-0 left-0 w-screen h-[calc(100vh-50px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}

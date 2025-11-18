@@ -22,7 +22,7 @@ export default function TerminalApp({title, onClose, onMinimize, maximized, mini
     } ;
 
     return(
-        <Draggable defaultPosition={{ x: 0, y: 0 }}>
+        <Draggable handle=".titleBar"  defaultPosition={{ x: 0, y: 0 }}>
         <div
             style={{backgroundColor: terminalBackground}}
             className={`

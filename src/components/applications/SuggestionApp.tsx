@@ -41,12 +41,12 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
     } ;
 
     return(
-        <Draggable>
+        <Draggable handle={".titleBar"}>
             <div
                 className={`
          ${maximized ? ` fixed top-0 left-0 w-screen h-[calc(100vh-50px)] rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
                ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all cursor-default'}
-         rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
+         rounded-[10px] backdrop-blur-md `}>
                 {/*<Draggable handle=".titleBar">*/}
                 <div
                     onMouseEnter={handleMouseEnter}
@@ -64,11 +64,12 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
                         )}
                         <button onClick={onClose} className="w-[50px] h-full text-white hover:bg-red-600">✕</button>
                     </div>
-                </div>
-                <div className={"bg-black/90 w-full h-full"}>
-                    <Window>
+                </div> 
+                <div className={"bg-black/90 w-full h-full overflow-hidden text-black"}>
+                 
                         <div>
-                            <div className="max-w-xl mx-auto p-4">
+                            <div className="max-w-xl mx-auto p-4 flex flex-1 flex-col">
+                                <div>
                                 <h1 className="text-2xl font-bold mb-4">Leave a Suggestion</h1>
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                                     <input
@@ -98,20 +99,23 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
                                         Submit
                                     </button>
                                 </form>
+                                </div>
 
-                                <h2 className="text-xl font-semibold mt-6 mb-3">Previous Suggestions</h2>
-                                <ul className="space-y-2">
-                                    {suggestions.map((sug) => (
-                                        <li key={sug._id} className="border p-3 rounded bg-gray-100">
-                                            <p className="font-medium">{sug.name} ({sug.email})</p>
-                                            <p>{sug.message}</p>
-                                            <p className="text-sm text-gray-500">{new Date(sug.createdAt).toLocaleString()}</p>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div>
+                                    <h2 className="text-xl font-semibold mt-6 mb-3">Previous Suggestions</h2>
+                                    <ul className="space-y-2 ">
+                                        {suggestions.map((sug) => (
+                                            <li key={sug._id} className="border p-3 rounded bg-gray-100">
+                                                <p className="font-medium">{sug.name} ({sug.email})</p>
+                                                <p>{sug.message}</p>
+                                                <p className="text-sm text-gray-500">{new Date(sug.createdAt).toLocaleString()}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </Window>
+                   
                 </div>
 
 

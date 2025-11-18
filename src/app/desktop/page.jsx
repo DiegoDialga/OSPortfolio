@@ -12,9 +12,11 @@ import '../../components/desktop.css';
 import {useRouter} from "next/navigation";
 import SuggestionApp from "@/components/applications/SuggestionApp";
 import TinderApp from "../../components/applications/TinderApp";
+import { useScreenSize } from "@/context/ScreenSizeContext";
 
 const Page = () => {
     const router = useRouter();
+    const {isMobile} = useScreenSize();
     const [openWindows, setOpenWindows] = useState([]);
     const [maximizedWindows, setMaximizedWindows] = useState([]);
     const [minimizedWindows, setMinimizedWindows] = useState([]);
@@ -80,7 +82,10 @@ const Page = () => {
     const bringAppToFront = (appName) => setFocusedApp(appName);
 
     return (
-        <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
+        <>
+        {
+            isMobile ? "cannot view in mobile" : 
+            <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
             <div className="grid grid-cols-3 gap-10 p-10">
                 {apps.map((app, index) => (
                     <Draggable key={app.name} defaultPosition={{ x: index * 100, y: 50 }}>
@@ -125,6 +130,9 @@ const Page = () => {
                 focusedApp={bringAppToFront}
             />
         </div>
+        }
+        </>
+        
     );
 };
 

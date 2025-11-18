@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ScreenSizeProvider } from "@/context/ScreenSizeContext";
 import "./globals.css";
 
 
@@ -14,9 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      >
+      <body>
+        <ScreenSizeProvider>
         {children}
+        </ScreenSizeProvider>
       </body>
     </html>
   );

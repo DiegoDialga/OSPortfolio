@@ -30,7 +30,7 @@ export default function Page() {
     };
 
     return (
-        <div className="max-w-xl mx-auto p-4">
+        <div className="max-w-xl mx-auto p-4 overflow-hidden">
             <h1 className="text-2xl font-bold mb-4">Leave a Suggestion</h1>
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <input
@@ -62,9 +62,9 @@ export default function Page() {
             </form>
 
             <h2 className="text-xl font-semibold mt-6 mb-3">Previous Suggestions</h2>
-            <ul className="space-y-2">
+            <ul className="space-y-2 overflow-hidden">
                 {suggestions.map((sug) => (
-                    <li key={sug._id} className="border p-3 rounded bg-gray-100">
+                    <li key={sug._id} className="border p-3 rounded bg-gray-100 overflow-hidden">
                         <p className="font-medium">{sug.name} ({sug.email})</p>
                         <p>{sug.message}</p>
                         <p className="text-sm text-gray-500">{new Date(sug.createdAt).toLocaleString()}</p>

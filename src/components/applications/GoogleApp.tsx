@@ -9,7 +9,7 @@ import Draggable from "@/components/utils/draggable";
 export default function GoogleApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
 
     return(
-        <Draggable>
+        <Draggable handle=".titleBar">
             <div
                 className={`
          ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] overflow-hidden rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
