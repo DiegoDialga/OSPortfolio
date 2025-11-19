@@ -1,3 +1,9 @@
+## Last Update
+<!--LAST_UPDATED-->
+This will be updated automatically.
+<!--/LAST_UPDATED-->
+
+
 <h1>OSPortfolio - Window Themed Terminal Portfolio</h1>
 
 ![OSPortfolio Preview](public/images/desktop-ss.png)
