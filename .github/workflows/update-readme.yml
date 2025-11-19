@@ -1,0 +1,33 @@
+name: Update README Timestamp (IST)
+
+on:
+  schedule:
+    - cron: "0 18 * * *"   # Runs every day at 12:00 AM IST
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Update timestamp in README (IST)
+        run: |
+          timestamp=$(TZ="Asia/Kolkata" date +"%Y-%m-%d %I:%M:%S %p IST")
+
+          # Replace text between the markers
+          sed -i "s|<!--LAST_UPDATED-->.*<!--/LAST_UPDATED>|<!--LAST_UPDATED-->Last updated: $timestamp<!--/LAST_UPDATED>|" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Automated update (IST): $timestamp" || echo "No changes"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
