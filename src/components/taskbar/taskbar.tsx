@@ -7,7 +7,8 @@ const iconMapping = {
     Folder: "/images/folder-icon.webp",
     "Google Chrome": "/images/chrome-icon.png",
     Suggestion: "/images/suggestion.png",
-    Tinder: "/images/tinder-icon.png",
+    "Skills Tinder": "/images/tinder-icon.png",
+    VSCode: "/images/vscode-icon.png"
 };
 
 const Taskbar = ({ openWindows, restoreApp, minimizeApp, minimized, focusedApp }) => {
@@ -69,7 +70,10 @@ const Taskbar = ({ openWindows, restoreApp, minimizeApp, minimized, focusedApp }
                                 ${isActive ? "bg-white/10 backdrop-blur-sm" : "bg-transparent"}
                             `}
                         >
-                            <Image width={35} height={35} src={iconMapping[app]} alt="icon" />
+                            {
+                                iconMapping[app] ? <Image width={35} height={35} src={iconMapping[app]} alt="icon" /> : null
+                            }
+                            
 
                             {/* Indicator Line (Windows 11 style) */}
                             <div

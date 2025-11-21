@@ -7,6 +7,7 @@ import Taskbar from "../../components/taskbar/taskbar";
 import TerminalApp from "../../components/applications/TerminalApp";
 import FolderApp from "../../components/applications/FolderApp";
 import GoogleApp from "../../components/applications/GoogleApp";
+import VSCodeEditorApp from "../../components/applications/CodeEditorApp";
 import Draggable from "../../components/utils/draggable";
 import '../../components/desktop.css';
 import {useRouter} from "next/navigation";
@@ -36,7 +37,8 @@ const Page = () => {
         { name: "Folder", logo: "/images/folder-icon.webp" },
         { name: "Google Chrome", logo: "/images/chrome-icon.png" },
         {name: "Suggestion", logo: "/images/suggestion.png"},
-        {name: "Tinder", logo: "/images/tinder-icon.png" },
+        {name: "Skills Tinder", logo: "/images/tinder-icon.png" },
+        {name: "VSCode", logo: "/images/vscode-icon.png"}
     ];
 
     const appComponents = {
@@ -44,7 +46,8 @@ const Page = () => {
         Folder: FolderApp,
         "Google Chrome": GoogleApp,
         "Suggestion": SuggestionApp,
-        "Tinder": TinderApp,
+        "Skills Tinder": TinderApp,
+        "VSCode": VSCodeEditorApp
     };
 
 
@@ -88,7 +91,9 @@ const Page = () => {
             <div className="absolute inset-0 w-screen h-screen bg-cover bg-center overflow-hidden">
             <div className="grid grid-cols-3 gap-10 p-10">
                 {apps.map((app, index) => (
-                    <Draggable key={app.name} defaultPosition={{ x: index * 100, y: 50 }}>
+                    <Draggable 
+                    key={app.name} 
+                    defaultPosition={{ x: index * 100, y: 50 }}>
                         <Icon
                             logo={app.logo}
                             name={app.name}

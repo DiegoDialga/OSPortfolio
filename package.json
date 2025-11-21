@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "@react-spring/web": "^9.5.5",
     "dotenv": "^17.2.3",
     "mongoose": "^8.19.2",
