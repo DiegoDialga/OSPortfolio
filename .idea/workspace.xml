@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee7f5be9-0d83-432a-ba66-b96d5095710a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/update-readme.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OSPortfolio.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/chrome-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/desktop-ss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/folder-icon.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/pdf-icon.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/suggestion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/terminal-ss.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/tinder-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/vscode-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/window-background.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/window-cmd-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/window-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pdf/deepanshu/resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pdf/jigyasa/resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/suggestions/route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/desktop/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/suggestions/page.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SplashScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/CodeEditorApp.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/FolderApp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/GoogleApp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/SuggestionApp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/TerminalApp.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/applications/TinderApp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/desktop.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/icon.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/taskbar/batteryStatus.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/taskbar/taskbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/terminals/WindowsTerminal.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/terminals/commands/windowCommands.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/terminals/fontColors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/terminals/terminalTheme.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/PDFViewer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/draggable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/localStorage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/skillsData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/window.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/ScreenSizeContext.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/GeistMonoVF.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/GeistVF.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/localStorage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/mongo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/SuggestionModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSX File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2u5Gts3pHZgcuE3xHNVnJC3ZAvL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "all-local-changes",
+    "ignore.virus.scanning.warn.message": "true",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "C:/Users/dell/source/reactProject/resumeBuilder",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\dell\\source\\nextJsProject\\OSPortfolio\\frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "GitIgnore"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\images" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\pdf\jigyasa" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\pdf\deepanshu" />
+      <recent name="C:\Users\dell\source\nextJsProject\trello_clone\src\app\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\images" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\src\components\applications" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\src" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\pdf\deepanshu" />
+      <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\images\deepanshu" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Next.js: server-side">
+    <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="Next.js: server-side" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee7f5be9-0d83-432a-ba66-b96d5095710a" name="Changes" comment="" />
+      <created>1741531239791</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741531239791</updated>
+      <workItem from="1741531241015" duration="70000" />
+      <workItem from="1741531335936" duration="2318000" />
+      <workItem from="1741535240935" duration="3205000" />
+      <workItem from="1741574654192" duration="802000" />
+      <workItem from="1741575477144" duration="7239000" />
+      <workItem from="1741585391408" duration="3956000" />
+      <workItem from="1741599016437" duration="939000" />
+      <workItem from="1741602045272" duration="8375000" />
+      <workItem from="1741610802434" duration="4270000" />
+      <workItem from="1741692425090" duration="2587000" />
+      <workItem from="1741758767345" duration="4195000" />
+      <workItem from="1741776797171" duration="2776000" />
+      <workItem from="1741781044221" duration="297000" />
+      <workItem from="1741838486432" duration="2527000" />
+      <workItem from="1741866488615" duration="5000" />
+      <workItem from="1741866710507" duration="3000" />
+      <workItem from="1741927912150" duration="3259000" />
+      <workItem from="1741953193951" duration="3513000" />
+      <workItem from="1742020062057" duration="106000" />
+      <workItem from="1742020188812" duration="638000" />
+      <workItem from="1742098042110" duration="3791000" />
+      <workItem from="1742127995669" duration="8069000" />
+      <workItem from="1742205021930" duration="3409000" />
+      <workItem from="1742267166909" duration="1531000" />
+      <workItem from="1742280945662" duration="6000" />
+      <workItem from="1742295318720" duration="110000" />
+      <workItem from="1742295447262" duration="61000" />
+      <workItem from="1742295518140" duration="2845000" />
+      <workItem from="1742298423716" duration="1044000" />
+      <workItem from="1742301580432" duration="28000" />
+      <workItem from="1742301626208" duration="2249000" />
+      <workItem from="1742475800175" duration="8000" />
+      <workItem from="1742731357889" duration="559000" />
+      <workItem from="1742985753385" duration="4639000" />
+      <workItem from="1743067482832" duration="4048000" />
+      <workItem from="1743129170370" duration="6584000" />
+      <workItem from="1743388176051" duration="3188000" />
+      <workItem from="1743511373452" duration="2254000" />
+      <workItem from="1743609202912" duration="960000" />
+      <workItem from="1743732792475" duration="745000" />
+      <workItem from="1743833598066" duration="1039000" />
+      <workItem from="1743844346756" duration="1040000" />
+      <workItem from="1743859882140" duration="2000" />
+      <workItem from="1743860012106" duration="2292000" />
+      <workItem from="1743901627353" duration="682000" />
+      <workItem from="1743914465185" duration="1131000" />
+      <workItem from="1744628451610" duration="2000" />
+      <workItem from="1744628981653" duration="16000" />
+      <workItem from="1744629054543" duration="26000" />
+      <workItem from="1758859394936" duration="313000" />
+      <workItem from="1758882930993" duration="6127000" />
+      <workItem from="1759871456531" duration="1424000" />
+      <workItem from="1759873511160" duration="782000" />
+      <workItem from="1760196435086" duration="1171000" />
+      <workItem from="1760623514436" duration="993000" />
+      <workItem from="1760677543266" duration="366000" />
+      <workItem from="1761143609545" duration="936000" />
+      <workItem from="1761453808825" duration="130000" />
+      <workItem from="1761455486008" duration="727000" />
+      <workItem from="1761456233348" duration="1641000" />
+      <workItem from="1761469742152" duration="4522000" />
+      <workItem from="1761574159576" duration="2773000" />
+      <workItem from="1761614431909" duration="2041000" />
+      <workItem from="1761631076947" duration="3559000" />
+      <workItem from="1761806005690" duration="29000" />
+      <workItem from="1763223164384" duration="3613000" />
+      <workItem from="1763226930388" duration="16000" />
+      <workItem from="1763270179717" duration="150000" />
+      <workItem from="1763292796170" duration="653000" />
+      <workItem from="1763736516045" duration="68000" />
+      <workItem from="1763870008219" duration="4449000" />
+      <workItem from="1763878961033" duration="1930000" />
+      <workItem from="1763881000757" duration="491000" />
+      <workItem from="1763882367504" duration="397000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/applications/TinderApp.tsx</url>
+          <line>66</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

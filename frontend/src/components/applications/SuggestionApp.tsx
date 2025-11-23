@@ -53,7 +53,7 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
                     onMouseLeave={handleMouseLeave}
                     className={`titleBar h-[40px] flex justify-between items-center 
                 bg-black/70 text-white 
-                rounded-t-[11px] overflow-hidden`}>
+                rounded-t-[11px] overflow-auto`}>
                     <span className="pl-3">{title}</span>
                     <div className="h-full">
                         <button onClick={onMinimize} className="w-[50px] h-full text-white hover:bg-gray-600">➖</button>
@@ -65,7 +65,7 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
                         <button onClick={onClose} className="w-[50px] h-full text-white hover:bg-red-600">✕</button>
                     </div>
                 </div> 
-                <div className={"bg-black/90 w-full h-full overflow-hidden text-black"}>
+                <div className={"bg-black/90 w-full h-full overflow-auto text-black"}>
                  
                         <div>
                             <div className="max-w-xl mx-auto p-4 flex flex-1 flex-col">

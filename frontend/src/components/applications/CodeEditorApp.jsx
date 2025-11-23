@@ -1,8 +1,7 @@
 "use client";
-
-import { useState } from "react";
 import Editor from "@monaco-editor/react";
 import Draggable from "../utils/draggable";
+import {useEditor} from "../../context/EditorContext";
 
 export default function VSCodeEditorApp({
   title = "VS Code",
@@ -13,11 +12,10 @@ export default function VSCodeEditorApp({
   minimized,
   onRestoreMaximized,
 }) {
-  const [code, setCode] = useState(
-`function greet() {
-  console.log("Hello from your OS Portfolio!");
-}`
-  );
+
+    const {code, setCode} = useEditor();
+
+    console.log(code)
 
   return (
     <Draggable handle=".titleBar">

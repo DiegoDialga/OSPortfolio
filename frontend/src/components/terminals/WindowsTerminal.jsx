@@ -4,10 +4,14 @@ import {windowCommands} from "@/components/terminals/commands/windowCommands";
 import {fontColors} from "@/components/terminals/fontColors";
 import {getLocalStorage, setLocalStorage} from "@/components/utils/localStorage";
 import {backgroundTheme, terminalTheme} from "@/components/terminals/terminalTheme";
+import {useEditor} from "../../context/EditorContext";
 
 
 
 const WindowsTerminal = ({background, onClose}) => {
+
+    const {code} = useEditor();
+    const [codeOutput, setCodeOutput] = useState([]);
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
@@ -15,10 +19,17 @@ const WindowsTerminal = ({background, onClose}) => {
     const inputFocusRef = useRef(null);
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
-    useEffect(()=>{
-        console.log("hello")
+    const runCode = async () => {
+        const res = await fetch('http://localhost:5000/run', {
+            method:"POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({code})
+        });
 
-    }, [output])
+        const data = await res.json();
+        setCodeOutput(prev=> [...prev, data.output])
+        console.log(data)
+    }
 
     const user = localStorage.getItem("selectedUser").toLowerCase();
 
@@ -37,8 +48,8 @@ const WindowsTerminal = ({background, onClose}) => {
         const newOutput = [...output, `${path}> ${command}`];
 
         const [cmd, ...cmdArgs] = command.toLowerCase().split(" ");
-        console.log(cmd)
-        console.log(cmdArgs)
+        /*console.log(cmd)
+        console.log(cmdArgs)*/
 
 
         if(cmd.toLowerCase() === "description"){
@@ -90,7 +101,7 @@ const WindowsTerminal = ({background, onClose}) => {
                     ))
                     break
                 case "fontcolor":
-                    if(cmdArgs.length == 0){
+                    if(cmdArgs.length === 0){
                         const string = "Try: 'fontcolor available' for listing all colors. \n" +
                             "Try: 'fontcolor <colorname>' to change the font color "
                         string.split('\n').map((line) => (
@@ -116,14 +127,14 @@ const WindowsTerminal = ({background, onClose}) => {
                     }
                     break
                 case "background":
-                    if(cmdArgs.length == 0 || cmdArgs[1] == ""){
+                    if(cmdArgs.length === 0 || cmdArgs[1] === ""){
                         const string = "Try: 'background available' for listing all background colors. \n" +
                             "Try: 'background <colorname> <transparency>' to change the background color. \n " +
                             "Note: <transparency> is optional and should be between 0 and 1."
                         string.split('\n').map((line) => (
                             newOutput.push(line)
                         ))
-                    }else if(cmdArgs[0] == 'available'){
+                    }else if(cmdArgs[0] === 'available'){
                         Object.keys(backgroundTheme).map((theme) => {
                             newOutput.push(theme)
                         })
@@ -149,6 +160,10 @@ const WindowsTerminal = ({background, onClose}) => {
                             })
                         }
                     }
+                    break;
+
+                case "run":
+                    runCode();
                     break;
                 case "exit":
                     onClose();

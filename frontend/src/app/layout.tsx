@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ScreenSizeProvider } from "@/context/ScreenSizeContext";
 import "./globals.css";
+import {EditorProvider} from "@/context/EditorContext";
 
 
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ScreenSizeProvider>
-        {children}
+            <EditorProvider>
+                {children}
+            </EditorProvider>
         </ScreenSizeProvider>
       </body>
     </html>
