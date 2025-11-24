@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-
-const MONGODB_URI = process.env.MONGODB_URI;
+import {MONGODB_URI} from "../components/utils/URL";
 
 if(!MONGODB_URI){
     throw new Error("MongoDB URI doesn't exist");

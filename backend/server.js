@@ -6,7 +6,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin:[
+        "http://localhost:3000",
+        "https://osportfolio.netlify.app/",
+    ],
+    methods: ["GET", "POST"],
+    allowedHeaders:["Content-Type", "application/json", "text/plain"],
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;

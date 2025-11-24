@@ -14,6 +14,7 @@ import { AiOutlineJavaScript } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import WindowsTerminal from "@/components/terminals/WindowsTerminal";
 import {useEditor} from "@/context/EditorContext";
+import {BACKEND_URI} from "@/components/utils/URL";
 
 
 export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
@@ -40,7 +41,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
 
     const runCode = async () => {
         console.log(code)
-        const res = await fetch("http://localhost:5000/node-runner/run", {
+        const res = await fetch(`${BACKEND_URI}/node-runner/run`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ code }),

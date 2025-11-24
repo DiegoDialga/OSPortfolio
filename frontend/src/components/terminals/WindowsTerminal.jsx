@@ -5,6 +5,7 @@ import {fontColors} from "@/components/terminals/fontColors";
 import {getLocalStorage, setLocalStorage} from "@/components/utils/localStorage";
 import {backgroundTheme, terminalTheme} from "@/components/terminals/terminalTheme";
 import {useEditor} from "../../context/EditorContext";
+import {BACKEND_URI} from "@/components/utils/URL";
 
 
 
@@ -20,7 +21,7 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
     const runCode = async () => {
-        const res = await fetch('http://localhost:5000/node-runner/run', {
+        const res = await fetch(`${BACKEND_URI}/node-runner/run`, {
             method:"POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({code})

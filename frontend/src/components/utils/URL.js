@@ -1,0 +1,4 @@
+const MONGODB_URI = process.env.NEXT_PUBLIC_MONGODB_URI;
+const BACKEND_URI = process.env.NEXT_PUBLIC_BACKEND_URI;
+
+export {MONGODB_URI, BACKEND_URI};
