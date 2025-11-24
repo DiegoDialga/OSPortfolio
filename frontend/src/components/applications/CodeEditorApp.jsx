@@ -25,7 +25,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     //const [isTerminalOpen, setIsTerminalOpen] = useState(true);
 
-   // const [files, setFiles] = useState(["index.js"]);
+   const files = ["index.js"]
     const [activeFile, setActiveFile] = useState("index.js");
 
     useEffect(() => {
