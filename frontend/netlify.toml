@@ -5,3 +5,5 @@ publish = ".next"
 [[plugins]]
 package = "@netlify/plugin-nextjs"
 
+[build.environment]
+SECRETS_SCAN_ENABLED = "false"
