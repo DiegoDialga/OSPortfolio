@@ -23,7 +23,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
 
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    //const [isTerminalOpen, setIsTerminalOpen] = useState(true);
+    const [isTerminalOpen, setIsTerminalOpen] = useState(true);
 
    const files = ["index.js"]
     const [activeFile, setActiveFile] = useState("index.js");
@@ -141,6 +141,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
                                         <span>OUTPUT</span>
 
                                         <span>TERMINAL</span>
+                                        <button onClick={()=> setIsTerminalOpen(false)}>close</button>
                                     </div>
 
                                     <div>
