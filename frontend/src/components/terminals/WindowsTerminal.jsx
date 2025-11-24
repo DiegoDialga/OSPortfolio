@@ -12,7 +12,7 @@ import {BACKEND_URI} from "@/components/utils/URL";
 const WindowsTerminal = ({terminalType ,background, onClose}) => {
 
     const {code} = useEditor();
-    const [codeOutput, setCodeOutput] = useState([]);
+    //const [codeOutput, setCodeOutput] = useState([]);
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
@@ -29,7 +29,7 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
 
 
         const data = await res.json();
-        setCodeOutput(prev=> [...prev, data.output])
+       // setCodeOutput(prev=> [...prev, data.output])
         console.log(data)
     }
 

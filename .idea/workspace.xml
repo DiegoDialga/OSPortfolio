@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee7f5be9-0d83-432a-ba66-b96d5095710a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/utils/URL.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/api/suggestions/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/api/suggestions/route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/applications/CodeEditorApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/applications/CodeEditorApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/applications/SuggestionApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/applications/SuggestionApp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/applications/TinderApp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/applications/TinderApp.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/terminals/WindowsTerminal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/terminals/WindowsTerminal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/lib/mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/lib/mongo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +194,8 @@
       <workItem from="1763882367504" duration="570000" />
       <workItem from="1763883008525" duration="3000" />
       <workItem from="1763892856921" duration="5304000" />
-      <workItem from="1763963268214" duration="4871000" />
+      <workItem from="1763963268214" duration="5912000" />
+      <workItem from="1763971878960" duration="2109000" />
     </task>
     <servers />
   </component>

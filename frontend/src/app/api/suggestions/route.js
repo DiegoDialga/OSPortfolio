@@ -39,7 +39,7 @@ export async function GET() {
         await connectToDatabase();
         const suggestions = await Suggestion.find().sort({ createdAt: -1 });
         return Response.json({ success: true, suggestions });
-    } catch (error) {
-        return Response.json({ success: false, message: "Error fetching suggestions" }, { status: 500 });
+    } catch (e) {
+        return Response.json({ success: false, message: "Error fetching suggestions"  + e}, { status: 500 });
     }
 }

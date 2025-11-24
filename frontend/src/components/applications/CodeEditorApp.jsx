@@ -20,18 +20,18 @@ import {BACKEND_URI} from "@/components/utils/URL";
 export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
 
     const {code, setCode} = useEditor();
-    const [output, setOutput] = useState("");
+
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-    const [isTerminalOpen, setIsTerminalOpen] = useState(true);
+    //const [isTerminalOpen, setIsTerminalOpen] = useState(true);
 
-    const [files, setFiles] = useState(["index.js"]);
+   // const [files, setFiles] = useState(["index.js"]);
     const [activeFile, setActiveFile] = useState("index.js");
 
     useEffect(() => {
         const saved = localStorage.getItem("vscode_editor_code");
         if (saved) setCode(saved);
-    }, []);
+    }, [setCode]);
 
     const handleChange = (v) => {
         console.log(v)
@@ -47,7 +47,8 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
             body: JSON.stringify({ code }),
         });
         const data = await res.json();
-        setOutput(data.output)
+        console.log(data)
+
     };
 
     return (
@@ -131,7 +132,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
                         </div>
 
                         {/* Terminal bottom */}
-                        {isTerminalOpen && (
+                        { (
                             <div className="bg-[#202020] flex-shrink-0 h-[35%] py-1 px-3 text-white font-mono text-xs border-t border-gray-700 overflow-hidden">
 
                             <div className={"flex justify-between items-center"}>

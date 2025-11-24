@@ -1,7 +1,6 @@
 "use client"
 import React, {useEffect, useState} from "react";
 import Draggable from "../utils/draggable";
-import Window from "../utils/window";
 
 
 export default function SuggestionApp({title, onClose, onMinimize, maximized, minimized, onMaximize, onRestoreMaximized}) {
