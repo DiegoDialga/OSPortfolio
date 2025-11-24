@@ -5,71 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee7f5be9-0d83-432a-ba66-b96d5095710a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/update-readme.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OSPortfolio.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/chrome-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/desktop-ss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/folder-icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/pdf-icon.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/suggestion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/terminal-ss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/tinder-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vscode-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/window-background.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/window-cmd-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/window-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pdf/deepanshu/resume.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pdf/jigyasa/resume.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api/suggestions/route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/desktop/page.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/suggestions/page.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SplashScreen.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/CodeEditorApp.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/FolderApp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/GoogleApp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/SuggestionApp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/TerminalApp.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/applications/TinderApp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/desktop.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/icon.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/taskbar/batteryStatus.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/taskbar/taskbar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/terminals/WindowsTerminal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/terminals/commands/windowCommands.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/terminals/fontColors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/terminals/terminalTheme.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/utils/PDFViewer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/utils/draggable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/utils/localStorage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/utils/skillsData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/utils/window.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/ScreenSizeContext.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/GeistMonoVF.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/GeistVF.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/localStorage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/mongo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/SuggestionModel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/applications/CodeEditorApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/applications/CodeEditorApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/applications/TerminalApp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/applications/TerminalApp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/terminals/WindowsTerminal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/terminals/WindowsTerminal.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,35 +42,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "all-local-changes",
-    "ignore.virus.scanning.warn.message": "true",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/Users/dell/source/reactProject/resumeBuilder",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\dell\\source\\nextJsProject\\OSPortfolio\\frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;all-local-changes&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dell/source/reactProject/resumeBuilder&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\dell\\source\\nextJsProject\\OSPortfolio\\frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "GitIgnore"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;GitIgnore&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\dell\source\nextJsProject\OSPortfolio\public\images" />
@@ -247,7 +189,10 @@
       <workItem from="1763870008219" duration="4449000" />
       <workItem from="1763878961033" duration="1930000" />
       <workItem from="1763881000757" duration="491000" />
-      <workItem from="1763882367504" duration="397000" />
+      <workItem from="1763882367504" duration="570000" />
+      <workItem from="1763883008525" duration="3000" />
+      <workItem from="1763892856921" duration="5304000" />
+      <workItem from="1763963268214" duration="2484000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ import {useEditor} from "../../context/EditorContext";
 
 
 
-const WindowsTerminal = ({background, onClose}) => {
+const WindowsTerminal = ({terminalType ,background, onClose}) => {
 
     const {code} = useEditor();
     const [codeOutput, setCodeOutput] = useState([]);
@@ -20,11 +20,12 @@ const WindowsTerminal = ({background, onClose}) => {
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
 
     const runCode = async () => {
-        const res = await fetch('http://localhost:5000/run', {
+        const res = await fetch('http://localhost:5000/node-runner/run', {
             method:"POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({code})
         });
+
 
         const data = await res.json();
         setCodeOutput(prev=> [...prev, data.output])
@@ -191,6 +192,9 @@ const WindowsTerminal = ({background, onClose}) => {
             style={{color: fontColor}}
             className={`w-full h-full font-mono text-[17px] font-extrabold brightness-150`}
             onClick={() => inputFocusRef.current?.focus()}>
+
+
+            <span className={`${terminalType === 'VSTerminal' ? "hidden" : "flex flex-row"}`}>
             <span>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>
@@ -198,9 +202,10 @@ const WindowsTerminal = ({background, onClose}) => {
             <span>
                 <p>If you don&#39;t know what to do, try &#34;help&#34;</p>
             </span>
+                </span>
 
             {/* Scrollable Output Area */}
-            <div className="h-[calc(100%-120px)] overflow-y-auto p-2">
+            <div className="h-full overflow-y-auto p-2">
                 {output.map((line, index) => (
                     <p key={index} className="break-words">{line}</p>
                 ))}
