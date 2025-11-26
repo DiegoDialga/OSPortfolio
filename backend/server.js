@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({
     origin:[
         "http://localhost:3000",
-        "https://osportfolio.netlify.app/",
+        "https://osportfolio.netlify.app",
     ],
     methods: ["GET", "POST"],
     allowedHeaders:["Content-Type", "application/json", "text/plain"],
