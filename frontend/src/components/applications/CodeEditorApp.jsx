@@ -55,7 +55,7 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
         <Draggable handle=".titleBar">
             <div
                 className={`
-         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] overflow-hidden rounded-none` : 'absolute w-[750px] h-[500px] transition-all'}
+         ${maximized ? `fixed top-0 left-0 w-screen h-[calc(100vh-50px)] overflow-hidden rounded-none` : 'absolute w-[750px] h-[500px] transition-all overflow-hidden'}
                ${minimized ? 'scale-0 opacity-0' : 'scale-100 opacity-100 transition-all'} rounded-[10px] backdrop-blur-md text-white border border-gray-600`}>
                 {/*<Draggable handle=".titleBar">*/}
                 <div
@@ -149,7 +149,9 @@ export default function VSCodeEditorApp({title, onClose, onMinimize, maximized, 
                                     </div>
 
                                 </div>
+                                <div>
                                 <WindowsTerminal terminalType={'VSTerminal'} onClose={onClose}/>
+                                </div>
                             </div>
                         )}
                     </div>

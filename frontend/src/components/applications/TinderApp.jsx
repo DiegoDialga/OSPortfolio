@@ -47,7 +47,12 @@ const TinderApp = ({title, onClose, onMinimize, maximized, minimized, onMaximize
                     </div>
                 </div>
 
+                <div className={'w-full flex justify-center'}>
+                    <h2>Swipe the cards to see more skills</h2>
+                </div>
+
                 <div className="grid h-full w-full place-items-center bg-neutral-100 overflow-hidden relative">
+
 
                     {data.map((card, index) => (
                         <TinderCard

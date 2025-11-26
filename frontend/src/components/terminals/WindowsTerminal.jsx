@@ -10,15 +10,17 @@ import {BACKEND_URI} from "@/components/utils/URL";
 
 
 const WindowsTerminal = ({terminalType ,background, onClose}) => {
-
     const {code} = useEditor();
-    //const [codeOutput, setCodeOutput] = useState([]);
+    const [codeOutput, setCodeOutput] = useState([]);
     const path = "C:\\Users\\Doflamingo";
     const [output, setOutput] = useState([""]);
     const [input, setInput] = useState("");
     const terminalEndRef = useRef(null);
     const inputFocusRef = useRef(null);
     const [fontColor, setFontColor] = useState(fontColors[getLocalStorage('fontColor')]);
+
+    const [history, setHistory] = useState([]);
+    const [historyIndex, setHistoryIndex] = useState(-1);
 
     const runCode = async () => {
         const res = await fetch(`${BACKEND_URI}/node-runner/run`, {
@@ -31,6 +33,7 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
         const data = await res.json();
        // setCodeOutput(prev=> [...prev, data.output])
         console.log(data)
+        setCodeOutput(data)
     }
 
     const user = localStorage.getItem("selectedUser").toLowerCase();
@@ -39,13 +42,38 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
         setInput(event.target.value);
     };
 
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            if (input.trim() !== "") {
+                setHistory((prev) => [...prev, input]);
+                setHistoryIndex(-1);
+            }
             processCommand(input);
             setInput("");
         }
-    };
 
+        // History Navigation
+        if (e.key === "ArrowUp") {
+            if (history.length === 0) return;
+            const newIdx = historyIndex === -1 ? history.length - 1 : historyIndex - 1;
+            if (newIdx >= 0) {
+                setHistoryIndex(newIdx);
+                setInput(history[newIdx]);
+            }
+        }
+
+        if (e.key === "ArrowDown") {
+            if (history.length === 0) return;
+            const newIdx = historyIndex + 1;
+            if (newIdx < history.length) {
+                setHistoryIndex(newIdx);
+                setInput(history[newIdx]);
+            } else {
+                setHistoryIndex(-1);
+                setInput("");
+            }
+        }
+    };
     const processCommand = (command) => {
         const newOutput = [...output, `${path}> ${command}`];
 
@@ -164,8 +192,12 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
                     }
                     break;
 
-                case "run":
-                    runCode();
+                case "node":
+                    runCode().then(()=>{
+
+                        newOutput.push(JSON.stringify(codeOutput))
+                    });
+
                     break;
                 case "exit":
                     onClose();
@@ -190,33 +222,29 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
 
     return (
         <div
-            style={{color: fontColor}}
-            className={`w-full h-full font-mono text-[17px] font-extrabold brightness-150`}
-            onClick={() => inputFocusRef.current?.focus()}>
-
-
-            <span className={`${terminalType === 'VSTerminal' ? "hidden" : "flex flex-row"}`}>
-            <span>
+            style={{ color: fontColor }}
+            className="w-full h-full font-mono text-[17px] font-extrabold brightness-150"
+            onClick={() => inputFocusRef.current?.focus()}
+        >
+            {/* Header */}
+            <div className={`${terminalType === "VSTerminal" ? "hidden" : "mb-2"}`}>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>
-            </span>
-            <span>
-                <p>If you don&#39;t know what to do, try &#34;help&#34;</p>
-            </span>
-                </span>
+                <p>If you don't know what to do, try "help"</p>
+            </div>
 
-            {/* Scrollable Output Area */}
-            <div className="h-full overflow-y-auto p-2">
+            {/* Output + Input scroll area */}
+            <div className="h-[calc(100%-135px)] overflow-y-auto px-2">
                 {output.map((line, index) => (
-                    <p key={index} className="break-words">{line}</p>
+                    <p key={index} className="break-words whitespace-pre-wrap">
+                        {line}
+                    </p>
                 ))}
 
-                <div ref={terminalEndRef}/>
+                <div ref={terminalEndRef} />
 
-
-                {/* Input Area */}
-                <div className="h-2" />
-                <div className="flex">
+                {/* User input */}
+                <div className="flex mt-2">
                     <span>{path}&gt;</span>
                     <input
                         type="text"
@@ -229,10 +257,10 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
                         ref={inputFocusRef}
                     />
                 </div>
-                <br/>
             </div>
         </div>
-    );
+
+);
 };
 
 export default WindowsTerminal;

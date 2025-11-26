@@ -32,12 +32,6 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
         }
     };
 
-    const handleMouseEnter = () =>{
-        console.log("mouseenter");
-    } ;
-    const handleMouseLeave = () =>{
-        console.log("mouseleft");
-    } ;
 
     return(
         <Draggable handle={".titleBar"}>
@@ -48,8 +42,6 @@ export default function SuggestionApp({title, onClose, onMinimize, maximized, mi
          rounded-[10px] backdrop-blur-md `}>
                 {/*<Draggable handle=".titleBar">*/}
                 <div
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
                     className={`titleBar h-[40px] flex justify-between items-center 
                 bg-black/70 text-white 
                 rounded-t-[11px] overflow-auto`}>
