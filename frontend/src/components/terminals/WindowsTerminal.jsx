@@ -230,7 +230,8 @@ const WindowsTerminal = ({terminalType ,background, onClose}) => {
             <div className={`${terminalType === "VSTerminal" ? "hidden" : "mb-2"}`}>
                 <p>Microsoft Windows [Version 10.0.22631.4169]</p>
                 <p>(c) Microsoft Corporation. All rights reserved.</p>
-                <p>If you don't know what to do, try "help"</p>
+                <p><p>If you don&apos;t know what to do, try &quot;help&quot;</p>
+                </p>
             </div>
 
             {/* Output + Input scroll area */}
