@@ -2,7 +2,7 @@ name: Deploy Frontend + Backend CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "all-local-changes" ]
 
 jobs:
   deploy:
