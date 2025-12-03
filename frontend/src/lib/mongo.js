@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import {MONGODB_URI} from "../components/utils/URL";
 
 if(!MONGODB_URI){
-    throw new Error("MongoDB URI doesn't exist");
+    console.log("MongoDB URI doesn't exist");
 }
 
 export async function connectToDatabase(){
