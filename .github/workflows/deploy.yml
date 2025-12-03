@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - "all-local-changes"
 
 jobs:
   deploy:
