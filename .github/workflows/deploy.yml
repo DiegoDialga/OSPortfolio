@@ -1,0 +1,41 @@
+name: Deploy Frontend + Backend CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Deploy Backend to Render using webhook
+      - name: Trigger Render Deploy Hook (Backend)
+        run: |
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
+      # Install Node so we can build frontend
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install frontend dependencies
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      # Build frontend
+      - name: Build Frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      # Deploy frontend using Netlify CLI
+      - name: Deploy to Netlify
+        uses: netlify/actions@v4
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

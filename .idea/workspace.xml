@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee7f5be9-0d83-432a-ba66-b96d5095710a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,12 +20,25 @@
         <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="GitHub Workflow" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DiegoDialga"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DiegoDialga/OSPortfolio.git",
+    "accountId": "9f086226-5a04-4fad-905a-2ad79ece96a3"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -58,7 +71,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "ts.external.directory.path": "C:\\Users\\dell\\source\\nextJsProject\\OSPortfolio\\frontend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   },
@@ -194,6 +207,8 @@
       <workItem from="1764208472304" duration="296000" />
       <workItem from="1764416225439" duration="34000" />
       <workItem from="1764726860363" duration="1379000" />
+      <workItem from="1764730722159" duration="263000" />
+      <workItem from="1764763579836" duration="2103000" />
     </task>
     <servers />
   </component>
