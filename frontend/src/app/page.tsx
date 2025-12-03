@@ -9,9 +9,10 @@ export default function Home() {
     <>
       {isMobile ? (
         <p style={{ textAlign: "center", padding: "20px" }}>
-          Not viewable on mobile
+          Not viewable on mobile. Please switch to a laptop
         </p>
       ) : (
+
         <SplashScreen />
       )}
     </>
